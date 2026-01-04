@@ -1,0 +1,195 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator | FitLife</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color:   #f3ede6;
+            color:  black;
+        }
+
+        /* Navbar */
+        header {
+            background-color: #EDE6DF;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav h1 {
+            color: #000; /* Black color for headings */
+            margin: 0;
+            font-size: 28px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #2E2E2E;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        /* BMI Section */
+        .bmi-section {
+            max-width: 500px;
+            margin: 60px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 6px;
+        }
+
+        .bmi-section h2 {
+            text-align: center;
+            color: #000; /* Black color for headings */
+            margin-bottom: 10px;
+        }
+
+        .bmi-section p {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .bmi-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .bmi-section input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .bmi-section button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .bmi-section button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <h1>FitLife</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="2BMI.html">BMI Calculator</a></li>
+                <li><a href="3workouts.html">Workouts</a></li>
+                <li><a href="4diet.html">Diet Plan</a></li>
+                <li><a href="5Join us.html">Join Us</a></li>
+                <li><a href="6About.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BMI Calculator -->
+    <section class="bmi-section">
+        <h2>BMI Calculator</h2>
+        <p>Enter your height and weight to calculate your Body Mass Index.</p>
+
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" placeholder="Enter your weight">
+
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" placeholder="Enter your height">
+
+        <button onclick="calculateBMI()">Calculate BMI</button>
+
+        <div class="result" id="result"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fit Life | BMI Calculator</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function calculateBMI() {
+            var weight = document.getElementById("weight").value;
+            var height = document.getElementById("height").value;
+
+            if (weight === "" || height === "") {
+                document.getElementById("result").innerText = "Please enter valid values.";
+                return;
+            }
+
+            height = height / 100;
+            var bmi = weight / (height * height);
+            var message = "";
+
+            if (bmi < 18.5) {
+                message = "Underweight";
+            } else if (bmi < 25) {
+                message = "Normal weight";
+            } else if (bmi < 30) {
+                message = "Overweight";
+            } else {
+                message = "Obese";
+            }
+
+            document.getElementById("result").innerText =
+                "Your BMI is " + bmi.toFixed(2) + " (" + message + ")";
+        }
+    </script>
+
+</body>
+</html>
+

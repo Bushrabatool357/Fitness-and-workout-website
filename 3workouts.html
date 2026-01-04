@@ -1,0 +1,383 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FitLife – Workout Selection & Tutorials</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color:  #d5cabc;
+    color:   black;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #EDE6DF;
+    padding: 15px 30px;
+}
+
+.navbar h2 {
+    display: inline;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+.navbar a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #2E2E2E;
+    font-size: 15px;
+}
+
+/* HEADER */
+header {
+    background-color: #1C1C1C;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+/* SECTION */
+section {
+    padding: 40px 8%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* WORKOUT SELECTION */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    font-size: 50px;
+}
+
+.type {
+    color: #ff5a5f;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* TIMER */
+.timer {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 5px;
+    background: #ff5a5f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #1C1C1C;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.hero button {
+    background-color: #B89B7C;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 25px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Three Column Section */
+.three-column {
+    display: flex;
+    padding: 25px;
+    background-color: #F7F3EF;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.three-column img {
+    width: 32%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.three-column .text {
+    width: 36%;
+    background-color: #D9D9D9;
+    padding: 20px;
+    border-radius: 5px;
+    height: 260px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.highlight {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Goals & Mission */
+.goals {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+    background-color: #EDE6DF;
+}
+
+.goal-box {
+    width: 200px;
+    background: #B89B7C;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+}
+
+/* Dark Section */
+.dark {
+    background-color: #1C1C1C;
+    color: white;
+    padding: 50px;
+}
+
+.dark ul {
+    list-style-type: square;
+}
+
+/* Members */
+.members {
+    padding: 40px;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background-color: #1C1C1C;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2>FitLife</h2>
+    <a href="index.html">Home</a>
+    <a href="2BMI.html">BMI Calculator</a>
+    <a>Workouts</a>
+    <a href="4diet.html">Diet Plan</a>
+    <a href="5Join us.html">Join Us</a>
+    <a href="6About.html">About</a>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Workout Selection</h1>
+    <p>Choose the right workout for your fitness journey</p>
+</div>
+
+<!-- Workout Selection -->
+<section id="workouts">
+    <h2>Workout Selection</h2>
+
+    <div class="cards">
+        <!-- Cardio -->
+        <div class="card" onclick="openTutorial(
+            'Jumping Jacks',
+            'Cardio | Beginner',
+            '1. Stand straight\n2. Jump with legs apart\n3. Raise hands overhead\n4. Repeat for 30 seconds')">
+            <div class="icon">🏃‍♂️</div>
+            <h3>Jumping Jacks</h3>
+            <div class="type">Cardio – Beginner</div>
+        </div>
+
+        <div class="card" onclick="openTutorial(
+            'High Knees',
+            'Cardio | Intermediate',
+            '1. Stand straight\n2. Lift knees alternately\n3. Keep core tight\n4. Continue for 45 seconds')">
+            <div class="icon">🔥</div>
+            <h3>High Knees</h3>
+            <div class="type">Cardio – Intermediate</div>
+        </div>
+
+        <!-- Muscle -->
+        <div class="card" onclick="openTutorial(
+            'Push Ups',
+            'Muscle | Intermediate',
+            '1. Hands on floor\n2. Keep body straight\n3. Lower chest\n4. Push up\n5. Repeat 10–15 times')">
+            <div class="icon">💪</div>
+            <h3>Push Ups</h3>
+            <div class="type">Muscle – Intermediate</div>
+        </div>
+
+        <div class="card" onclick="openTutorial(
+            'Squats',
+            'Muscle | Beginner',
+            '1. Stand with feet apart\n2. Bend knees\n3. Keep back straight\n4. Return up\n5. Repeat 15 times')">
+            <div class="icon">🏋️‍♂️</div>
+            <h3>Squats</h3>
+            <div class="type">Muscle – Beginner</div>
+        </div>
+
+        <!-- Advanced -->
+        <div class="card" onclick="openTutorial(
+            'Plank Hold',
+            'Advanced',
+            '1. Elbows on floor\n2. Body straight\n3. Tighten core\n4. Hold position\n5. Hold for 60 seconds')">
+            <div class="icon">⚡</div>
+            <h3>Plank Hold</h3>
+            <div class="type">Advanced</div>
+        </div>
+    </div>
+</section>
+
+<!-- TUTORIAL MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">✖</span>
+        <h3 id="exTitle"></h3>
+        <p id="exSteps"></p>
+
+        <div class="timer" id="timer">00:00</div>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="stopTimer()">Stop</button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>© 2025 Fit Life | Fitness & Workout</p>
+</footer>
+
+<script>
+let seconds = 0;
+let interval;
+
+function openTutorial(title, level, steps) {
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("exTitle").innerHTML = title + " (" + level + ")";
+    document.getElementById("exSteps").innerText = steps;
+    resetTimer();
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+    stopTimer();
+}
+
+function startTimer() {
+    if (interval) return;
+    interval = setInterval(() => {
+        seconds++;
+        let m = Math.floor(seconds / 60);
+        let s = seconds % 60;
+        document.getElementById("timer").innerText =
+            (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(interval);
+    interval = null;
+}
+
+function resetTimer() {
+    stopTimer();
+    seconds = 0;
+    document.getElementById("timer").innerText = "00:00";
+}
+</script>
+
+</body>
+</html>
+

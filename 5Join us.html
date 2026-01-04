@@ -1,0 +1,166 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Us | FitLife</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color:   #e1d2c1;
+            color:   black;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #EDE6DF;
+            padding: 15px 30px;
+        }
+
+        .navbar h2 {
+            display: inline;
+            margin-right: 30px;
+        }
+
+        .navbar a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #2E2E2E;
+        }
+
+        /* Page Header */
+        .header {
+            text-align: center;
+            padding: 40px;
+            background-color: #1C1C1C;
+            color: white;
+        }
+
+        .header h1 {
+            margin-bottom: 10px;
+            font-size: 40px;
+        }
+
+        .header p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        /* Form Section */
+        .form-container {
+            width: 50%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .radio-group {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background-color: #B89B7C;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1C1C1C;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>FitLife</h2>
+        <a href="index.html">Home</a>
+        <a href="2BMI.html">BMI Calculator</a>
+        <a href="3workouts.html">Workouts</a>
+        <a href="4diet.html">Diet</a>
+        <a href="5Join us.html">Join Us</a>
+        <a href="6About.html">About</a>
+
+    </div>
+
+    <!-- Page Heading -->
+    <div class="header">
+        <h1>Join Fit Life</h1>
+        <p>Start your fitness journey with us today</p>
+    </div>
+
+    <!-- Form -->
+    <div class="form-container">
+        <form id="joinForm">
+
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label>Fitness Level</label>
+            <select id="fitnessLevel" required>
+                <option value="">Select Fitness Level</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+            </select>
+
+            <label>Preferred Workout</label>
+            <div class="radio-group">
+                <input type="radio" name="workout" value="Cardio"> Cardio <br>
+                <input type="radio" name="workout" value="Strength Training"> Strength Training <br>
+                <input type="radio" name="workout" value="Yoga"> Yoga
+            </div>
+
+            <button type="submit">Submit</button>
+
+        </form>
+        <p id="confirmationMessage" style="color: green; font-weight: bold;"></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Fit Life | ICT Semester Project</p>
+    </div>
+
+    <script>
+        document.getElementById("joinForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let message = "Registration Successful! Welcome to Fit Life, " + name + " 💪";
+            
+            document.getElementById("confirmationMessage").innerText = message;
+            this.reset();  // Reset the form fields after submission
+        });
+    </script>
+
+</body>
+</html>
